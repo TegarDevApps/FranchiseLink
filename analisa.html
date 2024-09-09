@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <title>Analisa</title>
+    <link rel="icon" href="/images/dashboard/logo-dashboard.png" type="image/x-icon">
+    <style>
+        .no-scrollbar {
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none; /* WebKit (Chrome, Safari) */
+        }
+
+    </style>
+</head>
+<body class="text-gray-800 font-inter">
+    
+    <!-- start: Sidebar -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-[#0D172A] p-4 z-50 sidebar-menu transition-transform">
+        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+            <img src="/images/dashboard/logo-dashboard.png" alt="">
+            <span class="text-lg font-bold text-white ml-3">FranchiseLink</span>
+        </a>
+        <ul class="mt-4">
+            <li class="mb-1 group ">
+                <a href="dashboard.html" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-function-line mr-3 text-lg"></i>
+                    <span class="text-sm">Beranda</span>
+                </a>
+            </li>
+            <li class="mb-1 group ">
+                <a href="franchise.html" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-store-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Franchise</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="mentor.html" class="flex items-center justify-between py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-graduation-cap-line mr-3 text-lg"></i>
+                        <span class="text-sm">Mentor</span>
+                    </div>
+                    <i class="ri-vip-crown-2-fill text-[#ECBE1C]"></i>
+                </a>
+            </li>
+            <li class="mb-1 group active">
+                <a href="analisa.html" class="flex items-center justify-between py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-pie-chart-2-fill mr-3 text-lg"></i>
+                        <span class="text-sm">Analisa</span>
+                    </div>
+                    <i class="ri-vip-crown-2-fill text-[#ECBE1C]"></i>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="pesan.html" class="flex justify-between items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-chat-1-line mr-3 text-lg"></i>
+                        <span class="text-sm">Pesan</span>
+                    </div>
+                    <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">4</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="index.html" class="flex justify-between items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-logout-box-line mr-3 text-lg"></i>
+                        <span class="text-sm">Keluar</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+    <!-- end: Sidebar -->
+
+    <!-- start: Main -->
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+        <div class="py-2 px-6 bg-white flex items-center h-[70px] shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+            <button type="button" class="text-lg text-gray-600 sidebar-toggle">
+                <i class="ri-menu-line"></i>
+            </button>
+                <ul class="flex items-center text-sm ml-4">
+                    <li class="mr-2">
+                        <a href="#" class="text-gray-600 hover:text-gray-400 font-medium">Analisa</a>
+                    </li>
+                </ul>
+            <ul class="ml-auto flex items-center">
+                <li class="mr-1 dropdown">
+                    <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                        <i class="ri-search-line"></i>
+                    </button>
+                    <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                        <form action="" class="p-4 border-b border-b-gray-100">
+                            <div class="relative w-full">
+                                <input type="text" class="py-2 pr-4 pl-10 bg-gray-50 w-full outline-none border border-gray-100 rounded-md text-sm focus:border-blue-500" placeholder="Search...">
+                                <i class="ri-search-line absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </form>
+                        <div class="mt-3 mb-2">
+                            <div class="text-[13px] font-medium text-gray-400 ml-4 mb-2">Recently</div>
+                            <ul class="max-h-64 overflow-y-auto">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button type="button" class="dropdown-toggle border border-[#EEEEEE] text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                        <i class="ri-notification-3-line p-3"></i>
+                    </button>
+                    <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                        <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
+                            <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
+                            <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                        </div>
+                        <div class="my-2">
+                            <ul class="max-h-64 overflow-y-auto" data-tab-for="notification" data-page="notifications">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="max-h-64 overflow-y-auto hidden" data-tab-for="notification" data-page="messages">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (1).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (2).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (3).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (4).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (5).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown ml-3 hidden lg:block xl:block">
+                    <div class="group flex gap-2">
+                        <button type="button" class="dropdown-toggle flex items-center">
+                            <img src="/images/dashboard/main-profile.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                        </button>
+                        <div class="text">
+                            <h1 class="text-sm text-[#000000]">Johan Yansen</h1>
+                            <p class="text-xs opacity-70">Anggota</p>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="xl:p-6 lg:p-6">
+            <div class="gap-6 mb-6">
+                <div class="left ">        
+                    <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md mb-5">
+                        <div class="top-content">
+                            <div class="xl:flex lg:flex items-center justify-between">
+                                <div class="group dot-menu relative">
+                                    <div class="relative">
+                                        <h1 class="font-medium">Hasil Analisa Mentor</h1>
+                                        <p class="text-[#A8A8A8] text-sm">Hasil analisa merek populer yang paling menjanjikan</p>
+                                    </div>
+                                </div>
+                                <div class="group flex items-center mt-5 xl:mt-0">
+                                    <img src="/images/dashboard/profile-chat (3).png" alt="" class="me-3">
+                                    <div class="relative flex">
+                                        <h1 class="me-1 font-medium">Franchisco Abraham</h1>
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="header-menu w-full">
+                        <!-- Tabel Header -->
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-4 py-3 text-left text-base font-medium text-[#000000]">Gambar</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-medium text-[#000000]">Merek</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-medium text-[#000000]">Pendapatan</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-medium text-[#000000]">Grafik Saham</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-medium text-[#000000]">Persentasi</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-base font-medium text-[#000000]">Laba</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <!-- Item 1 -->
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (3).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Alfamart</h1>
+                                                <p class="text-[#A8A8A8] text-xs">PT. Alfaria Tbk,alisa</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 750.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (1).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#00FC28]">+12.11%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 40.000.000</td>
+                                    </tr>
+                                    <!-- Item 2 -->
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (4).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Indomaret</h1>
+                                                <p class="text-[#A8A8A8] text-xs">PT Indomarco</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 620.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (2).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#00FC28]">+8.31%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 20.000.000</td>
+                                    </tr>
+                                    <!-- Item 3 -->
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (5).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Circle</h1>
+                                                <p class="text-[#A8A8A8] text-xs">PT. Alfaria Tbk,alisa</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 428.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (4).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#FC000F]">-1,3%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 12.000.000</td>
+                                    </tr>
+                                    <!-- Item 4 -->
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (6).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Laboan</h1>
+                                                <p class="text-[#A8A8A8] text-xs">Emerentian Sanjaya</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 82.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (5).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#00FC28]">+2.8%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 8.000.000</td>
+                                    </tr>
+                                    <!-- Item 5 -->
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (7).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Steak Indonesia</h1>
+                                                <p class="text-[#A8A8A8] text-xs">Jody Brotosuseno</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 60.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (6).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#FC000F]">-0.1%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 15.000.000</td>
+                                    </tr>
+                                    <!-- Item 6 -->
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (8).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Nasin Goreng IDN</h1>
+                                                <p class="text-[#A8A8A8] text-xs">Dante Lenonal</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 31.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (7).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#FC000F]">-2.12%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 5.000.000</td>
+                                    </tr>
+                                    <!-- Item 7 -->
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (1).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Ny. Shini</h1>
+                                                <p class="text-[#A8A8A8] text-xs">Nyonya Shini</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 29.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (1).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#00FC28]">+4.3%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 3.000.000</td>
+                                    </tr>
+                                    <!-- Item 8 -->
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <img src="/images/dashboard/tabel-slider (2).png" alt="">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm flex font-medium text-gray-900">
+                                            <div class="text">
+                                                <h1 class="font-medium text-base">Otopia</h1>
+                                                <p class="text-[#A8A8A8] text-xs">Nyonya Shini</p>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 85.000.000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">
+                                            <div class="images">
+                                                <img src="/images/dashboard/graphic (2).png" alt="">
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#00FC28]">+1.2%</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-[#000000]">Rp. 15.000.000</td>
+                                    </tr>
+                                    <!-- Tambahkan lebih banyak item sesuai kebutuhan -->
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <!-- end: Main -->
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+
+    <script>
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    label.classList.remove('text-[#A8A8A8]');
+                    label.classList.add('text-blue-600');
+                } else {
+                    label.classList.remove('text-blue-600');
+                    label.classList.add('text-[#A8A8A8]');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <title>Pesan</title>
+    <link rel="icon" href="/images/dashboard/logo-dashboard.png" type="image/x-icon">
+
+    <style>
+        .no-scrollbar {
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none; /* WebKit (Chrome, Safari) */
+        }
+
+    </style>
+</head>
+<body class="text-gray-800 font-inter">
+    
+    <!-- start: Sidebar -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-[#0D172A] p-4 z-50 sidebar-menu transition-transform">
+        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+            <img src="/images/dashboard/logo-dashboard.png" alt="">
+            <span class="text-lg font-bold text-white ml-3">FranchiseLink</span>
+        </a>
+        <ul class="mt-4">
+            <li class="mb-1 group ">
+                <a href="dashboard.html" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-function-line mr-3 text-lg"></i>
+                    <span class="text-sm">Beranda</span>
+                </a>
+            </li>
+            <li class="mb-1 group ">
+                <a href="franchise.html" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-store-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Franchise</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="mentor.html" class="flex items-center justify-between py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-graduation-cap-line mr-3 text-lg"></i>
+                        <span class="text-sm">Mentor</span>
+                    </div>
+                    <i class="ri-vip-crown-2-fill text-[#ECBE1C]"></i>
+                </a>
+            </li>
+            <li class="mb-1 group ">
+                <a href="analisa.html" class="flex items-center justify-between py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-pie-chart-2-fill mr-3 text-lg"></i>
+                        <span class="text-sm">Analisa</span>
+                    </div>
+                    <i class="ri-vip-crown-2-fill text-[#ECBE1C]"></i>
+                </a>
+            </li>
+            <li class="mb-1 group active">
+                <a href="pesan.html" class="flex justify-between items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-chat-1-line mr-3 text-lg"></i>
+                        <span class="text-sm">Pesan</span>
+                    </div>
+                    <span class="inline-block text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">4</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="index.html" class="flex justify-between items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-logout-box-line mr-3 text-lg"></i>
+                        <span class="text-sm">Keluar</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+    <!-- end: Sidebar -->
+
+    <!-- start: Main -->
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+        <div class="py-2 px-6 bg-white flex items-center h-[70px] shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+            <button type="button" class="text-lg text-gray-600 sidebar-toggle">
+                <i class="ri-menu-line"></i>
+            </button>
+                <ul class="flex items-center text-sm ml-4">
+                    <li class="mr-2">
+                        <a href="#" class="text-gray-600 hover:text-gray-400 font-medium">Pesan</a>
+                    </li>
+                </ul>
+            <ul class="ml-auto flex items-center">
+                <li class="mr-1 dropdown">
+                    <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                        <i class="ri-search-line"></i>
+                    </button>
+                    <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                        <form action="" class="p-4 border-b border-b-gray-100">
+                            <div class="relative w-full">
+                                <input type="text" class="py-2 pr-4 pl-10 bg-gray-50 w-full outline-none border border-gray-100 rounded-md text-sm focus:border-blue-500" placeholder="Search...">
+                                <i class="ri-search-line absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </form>
+                        <div class="mt-3 mb-2">
+                            <div class="text-[13px] font-medium text-gray-400 ml-4 mb-2">Recently</div>
+                            <ul class="max-h-64 overflow-y-auto">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button type="button" class="dropdown-toggle border border-[#EEEEEE] text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                        <i class="ri-notification-3-line p-3"></i>
+                    </button>
+                    <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                        <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
+                            <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
+                            <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                        </div>
+                        <div class="my-2">
+                            <ul class="max-h-64 overflow-y-auto" data-tab-for="notification" data-page="notifications">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="max-h-64 overflow-y-auto hidden" data-tab-for="notification" data-page="messages">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (1).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (2).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (3).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (4).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (5).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown ml-3 hidden lg:block xl:block">
+                    <div class="group flex gap-2">
+                        <button type="button" class="dropdown-toggle flex items-center">
+                            <img src="/images/dashboard/main-profile.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                        </button>
+                        <div class="text">
+                            <h1 class="text-sm text-[#000000]">Johan Yansen</h1>
+                            <p class="text-xs opacity-70">Anggota</p>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="xl:p-6 lg:p-6 md:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr,2fr]">
+                <div class="wrapper-list-contact left xl:block lg:block md:block">
+                    <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6">
+                        <div class="flex justify-between items-center mb-4 ">
+                            <div class="font-medium text-[#000000]">Pesan</div>
+                            <div class="dropdown">
+                                <button class="px-4 py-2 bg-[#007DFC] text-[#FFFFFF] rounded-md text-sm w-full flex items-center justify-center gap-2">
+                                    <i class="ri-add-line text-lg"></i>
+                                    Percakapan Baru
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-5 overflow-y-auto h-[77vh] space-y-4 no-scrollbar">
+                            <div class="group space-y-4">
+                                <p class="text-[#007DFC] text-xs">GROUP</p>
+                                <!-- List item 1 -->
+                                <div class="flex list-contact p-3 bg-[#F8F8F8]">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-group (1).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Abraham Server</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Mentor : Bisa bertemu set..</p>
+                                    </div>
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">11:32</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                                <!-- List item 1 -->
+                                <div class="flex list-contact p-3">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-group (2).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Dawha Server</h4>
+                                        <p class="text-[#047FFC] text-sm italic">Dawha Sedang Mengetik</p>
+                                    </div>
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">11:32</span>
+                                        <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span>
+                                    </div>  
+                                </div>
+                                <!-- List item 3 -->
+                                <div class="flex list-contact p-3">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-group (3).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Alfamart Analisis</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Pak Tegar : Untuk meet..</p>
+                                    </div>
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">11:32</span>
+                                        <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="personal space-y-4 mt-5">
+                                <p class="text-[#007DFC] text-xs">PERSONAL</p>
+                                <!-- List item 1 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (1).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Vincent Stundies</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Jam 2 kita meeting ya pak</p>
+                                    </div>
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">10:11</span>
+                                        <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span>
+                                    </div>  
+                                </div>
+                                <!-- List item 2 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (2).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Deynaris Hartono</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Selmat pagi pak johan</p>
+                                    </div>
+                                    
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">08:09</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                                <!-- List item 3 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (3).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Ariik Kumar</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Hallo, apakah jadi meet?</p>
+                                    </div>
+                                    
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">Kemarin</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                                <!-- List item 4 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (4).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">David Beckham</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Baik pak saya mengerti</p>
+                                    </div>
+                                    
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">Kemarin</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                                <!-- List item 5 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (5).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Ammar Maulana</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Apakah sudah di transfer?</p>
+                                    </div>
+                                    
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">Kemarin</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                                <!-- List item 6 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (6).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">James Arthur</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Okey thankyou</p>
+                                    </div>
+                                    
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">Kemarin</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                                <!-- List item 7 -->
+                                <div class="flex list-contact p-3 bg-white">
+                                    <div class="images">
+                                        <img src="/images/dashboard/profile-chat (7).png" alt="User photo" class="object-cover mr-4">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-gray-800 font-medium">Christabel</h4>
+                                        <p class="text-[#A8A8A8] text-sm">Nice info</p>
+                                    </div>
+                                    
+                                    <div class="group justify-end text-end">
+                                        <span class="block text-[#A8A8A8] text-xs">Kemarin</span>
+                                        <!-- <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">2</span> -->
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right hidden xl:block lg:block md:block">                 
+                    <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6">
+                        <div class="top-content">
+                            <div class="flex items-center justify-between">
+                                <a href="#" class="back-list-contact">
+                                    <i class="ri-arrow-left-s-line text-xl me-2"></i>
+                                </a>
+                                <img src="/images/dashboard/profile-group (1).png" alt="" class="me-3">
+                                <div class="relative w-full">
+                                    <a href="#">
+                                        <h1>Abraham Server</h1>
+                                    </a>
+                                </div>
+                                <div class="dot-menu flex gap-3">
+                                    <i class="ri-pushpin-line text-xl font-thin opacity-70"></i>
+                                    <i class="ri-more-2-line text-xl font-thin opacity-70"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F8F8F8] border w-full overflow-y-auto h-[70vh] space-y-4 no-scrollbar">
+                        <div class="top-content w-full">
+                            <div class="flex items-center text-center justify-center">
+                                <h1 class="text-center text-sm px-3 py-2 mt-5 bg-[#F5F7FA]">Hari Ini</h1>
+                            </div>
+                        </div>
+                        <div class="chat border-gray-100 p-6 ">
+                            <div class="group flex">
+                                <div class="image me-5">
+                                    <img src="/images/dashboard/profile-chat (1).png" alt="" class="min-w-[48px] h-auto">
+                                </div>
+                                <div class="text">
+                                    <div class="top flex items-center">
+                                        <h1 class="text-[#62AFFD] me-4">Vincentius Stundies</h1>
+                                        <span class="block text-[#A8A8A8] text-xs">08:32</span>
+                                    </div>
+                                    <div class="bottom bg-white border-gray-100 shadow-md shadow-black/5 p-4 mt-2">
+                                        <p class="block text-[#000000] text-xs">Halo, selamat pagi semua. Nanti jangan lupa ya untuk dateng ke kantor membahas pasar yang sedang turun</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group flex mt-8">
+                                <div class="image me-5">
+                                    <img src="/images/dashboard/profile-chat (4).png" alt="" class="min-w-[48px] h-auto">
+                                </div>
+                                <div class="text">
+                                    <div class="top flex items-center">
+                                        <h1 class="text-[#FD6B62] me-4">Deynaris Hartono</h1>
+                                        <span class="block text-[#A8A8A8] text-xs">08:32</span>
+                                    </div>
+                                    <div class="bottom bg-white border-gray-100 shadow-md shadow-black/5 p-4 mt-2">
+                                        <p class="block text-[#000000] text-xs">Siap pak vincent, saya sudah konfirmasi ke kantor jugaa..</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group flex mt-8 justify-end">
+                                <div class="text justify-end me-5">
+                                    <div class="top flex items-center justify-end">
+                                        <span class="block text-[#A8A8A8] text-xs me-4">08:32</span>
+                                        <h1 class="text-[#6EFD62]">You</h1>
+                                    </div>
+                                    <div class="bottom bg-white border-gray-100 shadow-md shadow-black/5 p-4 mt-2">
+                                        <p class="block text-[#000000] text-xs">Laksanakan Pak Vincent kita tuntaskan semuanya</p>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <img src="/images/dashboard/main-profile.png" alt="" class="min-w-[48px] h-auto">
+                                </div>
+                            </div>
+                            <div class="group flex mt-8">
+                                <div class="image me-5">
+                                    <img src="/images/dashboard/profile-chat (5).png" alt="" class="min-w-[48px] h-auto">
+                                </div>
+                                <div class="text">
+                                    <div class="top flex items-center">
+                                        <h1 class="text-[#62AFFD] me-4">Mentor Abraham</h1>
+                                        <span class="block text-[#A8A8A8] text-xs">11:32</span>
+                                    </div>
+                                    <div class="bottom bg-white border-gray-100 shadow-md shadow-black/5 p-4 mt-2">
+                                        <p class="block text-[#000000] text-xs">Bisa bertemu setelah zuhur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-gray-100 shadow-md shadow-black/5 px-4 py-5">
+                        <div class="top-content w-full">
+                            <div class="flex items-center justify-between">
+                                <!-- Left side content -->
+                                <div class="dot-menu flex-1 flex gap-2 items-center">
+                                    <i class="ri-attachment-2 text-xl font-thin opacity-70"></i>
+                                    <i class="ri-emotion-line text-xl font-thin opacity-70 me-2"></i>
+                                    <input type="text" placeholder="Ketik pesan..." class="w-full bg-transparent border-none placeholder-gray-500 focus:outline-none focus:ring-0">
+                                </div>
+                                <!-- Right side content -->
+                                <div class="dot-menu items-center ms-6">
+                                    <i class="ri-mic-line text-xl font-thin opacity-70"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- end: Main -->
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ambil elemen-elemen yang akan di-manipulasi
+            const listContacts = document.querySelectorAll(".list-contact"); // Semua kontak di dalam div left
+            const leftDiv = document.querySelector(".left"); // Div dengan class left
+            const rightDiv = document.querySelector(".right"); // Div dengan class right
+            const backButton = document.querySelector(".back-list-contact"); // Tombol kembali
+
+            // Loop untuk menambahkan event listener ke semua elemen list-contact
+            listContacts.forEach(contact => {
+                contact.addEventListener("click", function() {
+                    // Ketika kontak diklik, sembunyikan left dan tampilkan right
+                    leftDiv.classList.add("hidden");
+                    rightDiv.classList.remove("hidden");
+                });
+            });
+
+            // Event listener untuk tombol back
+            backButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Mencegah default action dari anchor (href="#")
+                // Ketika tombol kembali diklik, tampilkan left dan sembunyikan right
+                leftDiv.classList.remove("hidden");
+                rightDiv.classList.add("hidden");
+            });
+        });
+
+    </script>
+</body>
+</html>

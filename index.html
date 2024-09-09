@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <title>FranchiseLink</title>
+    <link rel="icon" href="/images/dashboard/logo-dashboard.png" type="image/x-icon">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+        .button-blue {
+            background-color: #007DFC;
+        }
+        .text-blue {
+            color: #007DFC;
+        }
+
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        .slider-card {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider-card .item {
+            flex-shrink: 0;
+            width: 100%; /* Default to 100% for mobile */
+            max-width: 100%;
+        }
+
+        .no-scrollbar {
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none; /* WebKit (Chrome, Safari) */
+        }
+
+        @media (min-width: 1024px) {
+            .slider-card .item {
+                width: 32%; /* Show 3 items on larger screens */
+                max-width: 32%;
+            }
+        }
+        @media (min-width: 320px) and (max-width: 767px) { 
+            .slider-card .item {
+                width: 100%; /* Show 3 items on larger screens */
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 1920px) and (max-width: 2560px) {
+            #popup-overlay .adjust {
+                margin-top: 160px;
+            }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-[#F5F7FA]">
+    <div id="popup-overlay" class="fixed inset-0 xl:px-20 px-8 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-white adjust items-center justify-center mt-20">
+            <div class="flex">
+                <div class="max-w-full p-20 hidden xl:block" style="background-image: url('/images/landing-page/bg-login.png'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="bg-white h-auto">
+                        <div class="bg-[#007DFC] w-28 h-10"></div>
+                        <div class="bg-[#4AA5FE] w-10 h-5"></div>
+                        <div class="p-8 w-full">
+                            <div class="images flex justify-center text-center items-center mb-5">
+                                <img src="/images/landing-page/top-login.png" alt="">
+                            </div>
+                            <div class="w-full px-36">
+                                <h2 class="text-2xl font-semibold mb-4 items-center text-center justify-center ">Hubungkan Akun</h2>
+                                <p class="text-gray-600 mb-6 text-sm items-center text-center justify-center ">Nikmati akses cepat dan mudah ke semua fitur eksklusif FranchiseLink. Bergabunglah sekarang!</p>
+                            </div>
+                        </div>
+                        <hr class="border opacity-10 border-black">
+                        <div class="w-full p-10 scroll overflow-y-auto h-[200px] no-scrollbar">
+                            <div class="group">
+                                <div class="flex gap-2">
+                                    <i class="ri-shield-check-line text-xl text-[#007DFC]"></i>
+                                    <h2 class="text-base font-medium mb-2">Akses Eksklusif</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-sm max-w-xl">Dapatkan informasi dan penawaran khusus yang hanya tersedia bagi pengguna terdaftar.</p>
+                            </div>
+                            <div class="group">
+                                <div class="flex gap-2">
+                                    <i class="ri-shield-check-line text-xl text-[#007DFC]"></i>
+                                    <h2 class="text-base font-medium mb-2">Pengelolaan Mudah</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-sm max-w-xl">Kelola dan pantau semua aktivitas franchise Anda dengan mudah.</p>
+                            </div>
+                            <div class="group">
+                                <div class="flex gap-2">
+                                    <i class="ri-shield-check-line text-xl text-[#007DFC]"></i>
+                                    <h2 class="text-base font-medium mb-2">Notifikasi Real-Time</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-sm max-w-xl">Terima pembaruan dan notifikasi langsung mengenai peluang dan berita terbaru.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-full group">
+                    <div id="close-popup" class="close-icon icon w-full p-8 justify-end text-end">
+                        <i class="ri-close-fill text-4xl text-end items-end justify-end"></i>
+                    </div>
+                    <div class="bg-white p-8 w-full">
+                        <h2 class="text-3xl font-semibold mb-4">Masuk</h2>
+                        <p class="text-gray-600 mb-6">Akses fitur eksklusif dan kelola aktivitas franchise dengan mudah. Masuk sekarang!</p>
+                        <input type="text" placeholder="Email" class="border-b text-sm p-2 w-full mb-4">
+                        <div class="relative w-full mb-4">
+                            <input type="password" placeholder="Password" id="password" class="border-b text-sm p-2 w-full">
+                            <i id="togglePassword" class="ri-eye-off-line absolute right-3 top-3 cursor-pointer"></i>
+                        </div>
+                        <div class="group justify-between flex mb-5">
+                            <div class="checkbox items-center">
+                                <input type="checkbox" id="option1" name="description" class="me-1 checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="option1" class="text-sm text-[#A8A8A8]">Simpan Foto</label>
+                            </div>
+                            <a href="#" class="text-sm underline text-[#007DFC]">Lupa kata sandi?</a>
+                        </div>
+                        <div class="flex w-full gap-4">
+                            <button id="login-close" class="px-4 w-full py-3 text-sm bg-blue-500 text-white rounded hover:bg-blue-600" style="transition: all 0.5s ease;">Masuk</button>
+                        </div>
+                        <p class="text-black text-base mt-5">Atau login dengan</p>
+                        <div class="flex w-full mt-5 gap-4">
+                            <!-- Tombol Google -->
+                            <button class="px-4 w-full py-3 text-sm bg-transparent text-black rounded border border-[#BDC0C6] flex items-center justify-center gap-2">
+                                <i class="ri-google-fill text-xl text-[#007DFC]"></i> <!-- Icon Google -->
+                                Google
+                            </button>
+                        
+                            <!-- Tombol Facebook -->
+                            <button class="px-4 w-full py-3 text-sm bg-transparent text-black rounded border border-[#BDC0C6] flex items-center justify-center gap-2">
+                                <i class="ri-facebook-fill text-xl text-[#007DFC]"></i> <!-- Icon Facebook -->
+                                Facebook
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup-daftar" class="fixed inset-0 xl:px-20 px-8 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-white adjust items-center justify-center mt-20">
+            <div class="flex">
+                <div class="max-w-full p-20 hidden xl:block" style="background-image: url('/images/landing-page/bg-login.png'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="bg-white h-auto">
+                        <div class="bg-[#007DFC] w-28 h-10"></div>
+                        <div class="bg-[#4AA5FE] w-10 h-5"></div>
+                        <div class="p-8 w-full">
+                            <div class="images flex justify-center text-center items-center mb-5">
+                                <img src="/images/landing-page/top-login.png" alt="">
+                            </div>
+                            <div class="w-full px-36">
+                                <h2 class="text-2xl font-semibold mb-4 items-center text-center justify-center ">Hubungkan Akun</h2>
+                                <p class="text-gray-600 mb-6 text-sm items-center text-center justify-center ">Nikmati akses cepat dan mudah ke semua fitur eksklusif FranchiseLink. Bergabunglah sekarang!</p>
+                            </div>
+                        </div>
+                        <hr class="border opacity-10 border-black">
+                        <div class="w-full p-10 scroll overflow-y-auto h-[200px] no-scrollbar">
+                            <div class="group">
+                                <div class="flex gap-2">
+                                    <i class="ri-shield-check-line text-xl text-[#007DFC]"></i>
+                                    <h2 class="text-base font-medium mb-2">Akses Eksklusif</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-sm max-w-xl">Dapatkan informasi dan penawaran khusus yang hanya tersedia bagi pengguna terdaftar.</p>
+                            </div>
+                            <div class="group">
+                                <div class="flex gap-2">
+                                    <i class="ri-shield-check-line text-xl text-[#007DFC]"></i>
+                                    <h2 class="text-base font-medium mb-2">Pengelolaan Mudah</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-sm max-w-xl">Kelola dan pantau semua aktivitas franchise Anda dengan mudah.</p>
+                            </div>
+                            <div class="group">
+                                <div class="flex gap-2">
+                                    <i class="ri-shield-check-line text-xl text-[#007DFC]"></i>
+                                    <h2 class="text-base font-medium mb-2">Notifikasi Real-Time</h2>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-sm max-w-xl">Terima pembaruan dan notifikasi langsung mengenai peluang dan berita terbaru.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-full group">
+                    <div id="close-daftar" class="close-icon icon w-full p-8 justify-end text-end">
+                        <i class="ri-close-fill text-4xl text-end items-end justify-end"></i>
+                    </div>
+                    <div class="bg-white p-8 w-full">
+                        <h2 class="text-3xl font-semibold mb-4">Daftar</h2>
+                        <p class="text-gray-600 mb-6">Akses fitur eksklusif dan kelola aktivitas franchise dengan mudah. Masuk sekarang!</p>
+                        <input type="text" placeholder="Masukkan nama" class="border-b text-sm p-2 w-full mb-4">
+                        <input type="text" placeholder="Masukkan Email" class="border-b text-sm p-2 w-full mb-4">
+                        <div class="relative w-full mb-4">
+                            <input type="password" placeholder="Masukkan Password" id="password" class="border-b text-sm p-2 w-full">
+                            <i id="togglePassword" class="ri-eye-off-line absolute right-3 top-3 cursor-pointer"></i>
+                        </div>
+                        <div class="group justify-between flex mb-5">
+                            <div class="checkbox items-center">
+                                <input type="checkbox" id="option1" name="description" class="me-1 checkbox w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="option1" class="text-sm text-[#A8A8A8]">Simpan Foto</label>
+                            </div>
+                            <a href="#" class="text-sm underline text-[#007DFC]">Lupa kata sandi?</a>
+                        </div>
+                        <div class="flex w-full gap-4">
+                            <button id="button-daftar" class="px-4 w-full py-3 text-sm bg-blue-500 text-white rounded hover:bg-blue-600">Daftar</button>
+                        </div>
+                        <p class="text-black text-base mt-5">Atau login dengan</p>
+                        <div class="flex w-full mt-5 gap-4">
+                            <!-- Tombol Google -->
+                            <button class="px-4 w-full py-3 text-sm bg-transparent text-black rounded border border-[#BDC0C6] flex items-center justify-center gap-2">
+                                <i class="ri-google-fill text-xl text-[#007DFC]"></i> <!-- Icon Google -->
+                                Google
+                            </button>
+                        
+                            <!-- Tombol Facebook -->
+                            <button class="px-4 w-full py-3 text-sm bg-transparent text-black rounded border border-[#BDC0C6] flex items-center justify-center gap-2">
+                                <i class="ri-facebook-fill text-xl text-[#007DFC]"></i> <!-- Icon Facebook -->
+                                Facebook
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- popup tujuan -->
+    <div id="popup-tujuan" class="fixed inset-0 flex items-center justify-center xl:px-20 px-8 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden">
+        <div class="bg-white max-w-2xl xl:p-16 w-full p-6 ">
+            <h2 class="text-3xl font-semibold mb-3">Tujuan anda menggunakan <span class="text-[#007DFC] leading-relaxed">FranchiseLink</span></h2>
+            <p class="text-gray-600 mb-6">Pilih sesuai dengan tujuan anda agar kami tau yang terbaik untuk anda</p>
+            <div class="group">
+                <div class="card w-full xl:flex justify-between items-center border p-4 mb-5">
+                    <div class="images">
+                        <img src="/images/landing-page/profile-list (1).png" alt="">
+                    </div>
+                    <div class="text text-left xl:ms-[-120px]">
+                        <h1 class="text-base text-black">Saya sebagai pencari franchise</h1>
+                        <p class="text-sm text-[#5A616E]">Mencari peluang usaha</p>
+                    </div>
+                    <input type="checkbox" class="rounded-full w-4 h-auto">
+                </div>
+                <div class="card w-full xl:flex justify-between items-center border p-4">
+                    <div class="images">
+                        <img src="/images/landing-page/profile-list (2).png" alt="">
+                    </div>
+                    <div class="text text-left xl:ms-[-120px]">
+                        <h1 class="text-base text-black">Saya sebagai pemilik franchise</h1>
+                        <p class="text-sm text-[#5A616E]">Mencari mitra franchise</p>
+                    </div>
+                    <input type="checkbox" class="rounded-full w-4 h-auto">
+                </div>
+            </div>
+            <div class="w-full justify-end gap-8 mt-6 flex">
+                <a href="index.html" >
+                    <button class="text-sm g-blue-500 text-[#FC0000]">Kembali</button>
+                </a>
+                <a href="dashboard.html" >
+                    <button class="text-sm g-blue-500 text-[#007DFC]">Lanjut -></button>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <header class="bg-[#F5F7FA] fixed w-full z-50 top-0">
+        <nav class="flex bg-[#F5F7FA] justify-between items-center p-4 xl:px-32 mx-auto top-2">
+            <a href="#">
+                <img class="cursor-pointer mt-1" src="/images/landing-page/frenchise-logo.png" alt="...">
+            </a>
+            <div class="text-center nav-links duration-500 md:static absolute md:min-h-fit min-h-[20vh] top-[-600%] md:w-auto w-[100%] xl:pb-2 lg:pb-2 md:pb-2 pb-10">
+                <ul class="bg-[#F5F7FA] flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-8 xl:pt-2 lg:pt-2 md:pt-2 pt-16">
+                    <li>
+                        <a class="hover:text-gray-500 text-base " href="#beranda">Beranda</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500 text-base" href="#tentang">Tentang</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500 text-base" href="#layanan">Layanan</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500 text-base" href="#testimoni">Testimoni</a>
+                    </li>
+                    <!-- Pindahkan tombol ke dalam ul -->
+                    <li class="xl:hidden lg:hidden md:hidden px-10">
+                        <button id="open-popup-res" class="text-blue text-sm font-light w-full px-5 py-2 xl:px-5">Masuk</button>
+                    </li>
+                    <li class="xl:hidden lg:hidden md:hidden pb-5 px-10">
+                        <button id="open-daftar-res" class="button-blue text-white text-base w-full font-normal px-5 py-2 xl:px-7 xl:py-3 rounded-md">Daftar</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="hidden md:flex items-center gap-3">
+                <button id="open-popup" class="text-blue text-base font-medium px-5 py-2 xl:px-5 xl:py-3 hover:opacity-60" style="transition: all 0.5s ease;">Masuk</button>
+                <button id="open-daftar" class="button-blue text-white text-base font-normal px-5 py-2 xl:px-7 xl:py-3 rounded-md hover:opacity-60" style="transition: all 0.5s ease;">Daftar</button>
+            </div>
+            <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+        </nav>
+    </header>  
+
+    <!-- section 1 -->
+    <div id="beranda" class="section1 mx-auto xl:px-14 px-4 pt-32 h-auto flex flex-col items-center justify-center relative">
+        <div class="title xl:max-w-3xl w-full mx-auto text-center relative z-10">
+            <h1 class="font-bold text-4xl text-center xl:hidden">Mulai Perjalanan Bisnis Anda Dengan <span class="text-[#007DFC]">Franchise</span></h1>
+            <h1 class="font-bold text-3xl xl:text-6xl xl:leading-normal text-start ms-6 hidden xl:block">Mulai Perjalanan Bisnis</h1>
+            <div class="group flex items-center">
+                <h1 class="font-bold text-2xl xl:text-6xl xl:leading-loose text-start whitespace-nowrap hidden xl:block">Anda Dengan</h1>
+                <div class="images">
+                    <img src="/images/landing-page/franchise-text.png" alt="" class="hidden xl:block">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="images-text items-center w-full justify-center text-center">
+        <img src="/images/landing-page/main-image.png" alt="" class="w-full">
+    </div>
+
+    <!-- section 2 -->
+    <div id="tentang" class="section section2 xl:pb-20 h-auto bg-[#0D172A] mt[-100px]">
+        <div class="content p-4 py-10 xl:px-32 mx-auto ">
+            <!-- Logo Company Section -->
+            <div class="logo-company grid grid-cols-2 xl:flex flex-wrap justify-between items-center w-full xl:pt-6">
+                <div class="img-1 relative flex-1 flex justify-center mb-4 md:mb-0 w-[140px] h-auto xl:w-auto">
+                    <img src="/images/landing-page/Company logo.png" alt="" class="max-w-full h-auto">
+                    <div class="vertical-line absolute right-0 h-full w-px bg-white opacity-20 hidden md:block"></div>
+                </div>
+                <div class="img-1 relative flex-1 flex justify-center mb-4 md:mb-0 w-[140px] h-auto xl:w-auto">
+                    <img src="/images/landing-page/Company logo-2.png" alt="" class="max-w-full h-auto">
+                    <div class="vertical-line absolute right-0 h-full w-px bg-white opacity-20 hidden md:block"></div>
+                </div>
+                <div class="img-1 relative flex-1 flex justify-center mb-4 md:mb-0 w-[140px] h-auto xl:w-auto">
+                    <img src="/images/landing-page/Company logo-1.png" alt="" class="max-w-full h-auto">
+                    <div class="vertical-line absolute right-0 h-full w-px bg-white opacity-20 hidden md:block"></div>
+                </div>
+                <div class="img-1 relative flex-1 flex justify-center mb-4 md:mb-0 w-[140px] h-auto xl:w-auto">
+                    <img src="/images/landing-page/Company logo-3.png" alt="" class="max-w-full h-auto">
+                </div>
+            </div>
+            
+    
+            <!-- Text Content Section -->
+            <div class="text-content xl:flex mt-8 justify-between w-full xl:mt-24 text-white">
+                <div class="left">
+                    <h1 class="text-3xl xl:text-4xl font-semibold max-w-xl leading-relaxed">Platform Terbaik untuk Menemukan Franchise Anda</h1>
+                </div>
+                <div class="right justify-end">
+                    <p class="mt-3 xl:mt-0 xl:text-xl max-w-lg font-light">Temukan dan kelola peluang franchise terbaik dengan mudah melalui FranchiseLink.</p>
+                </div>
+            </div>
+    
+            <!-- Group Image Section -->
+            <div class="group-image mt-10 xl:mt-16">
+                <video class="w-full h-auto" controls>
+                    <source src="/images/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    
+    <!------------ section 5 ------------>
+    <div id="layanan" class="h-auto pt-32 section section5 pb-24 p-4 xl:px-32 mx-auto">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div class="w-full">
+                <h1 class="text-3xl xl:text-4xl font-semibold leading-normal max-w-xl">
+                    Bagaimana Kami Membantu Bisnis Franchise Anda
+                </h1>
+                <p class="paragraf mt-5 text-lg max-w-lg text-[#373737]">
+                    FranchiseLink menawarkan fitur lengkap untuk memudahkan pencarian dan pengelolaan franchise Anda.
+                </p>
+                <div class="profile-data flex items-center gap-4 mt-8">
+                    <div class="profile">
+                        <img src="/images/landing-page/profile-ceo.png" alt="">
+                    </div>
+                    <div class="name">
+                        <h1 class="text-base text-[#000000]">Dandles Hooper</h1>
+                        <p class="text-sm text-[#5A616E]">Data Analytics</p>
+                    </div>
+                </div>
+                <hr class="border-t border-[#5A616E] mt-10">
+                <div class="analytic flex items-center gap-x-8 mt-8">
+                    <div class="analytic-1 text-center">
+                        <h1 class="text-3xl font-semibold text-[#000000]">+10,000</h1>
+                        <p class="text-sm text-[#5A616E]">Perusahaan Terdaftar</p>
+                    </div>
+                    <div class="analytic-2 text-center flex-1">
+                        <h1 class="text-3xl font-semibold text-[#000000]">+5000</h1>
+                        <p class="text-sm text-[#5A616E]">Anggota FranchieLink</p>
+                    </div>
+                    <div class="analytic-3 text-center">
+                        <h1 class="text-3xl font-semibold text-[#000000]">+100</h1>
+                        <p class="text-sm text-[#5A616E]">Analis Pasar Terbaik</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full relative">
+                <div class="shadow-box absolute inset-0 bg-[#E1EFFE] -top-[-150px] -bottom-24 -left-[-100px] -right-40 -z-10 rounded-xl"></div>
+                <div class="card-information grid grid-cols-1 sm:grid-cols-2 gap-8 relative z-10">
+                    <!-- Card 1 -->
+                    <div class="wrapper-card-1 hover:mt-[-20px]" style="transition: all 0.5s ease;">
+                        <div class="div w-full h-[6px] bg-[#2796FF]"></div>
+                        <div class="card bg-white rounded-lg p-8 pb-16">
+                            <img src="/images/landing-page/icon (1).png" alt="Icon 1" class="mb-4">
+                            <h1 class="text-xl font-semibold text-[#000000] mb-4">Analisa Merek</h1>
+                            <p class="text-sm text-[#5A616E]">Layanan Analisa Merek kami membantu calon franchisee memahami potensi dan kekuatan berbagai merek.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="wrapper-card-1 hover:mt-[-20px]" style="transition: all 0.5s ease;">
+                        <div class="div w-full h-[6px] bg-[#47BEDE]"></div>
+                        <div class="card bg-white rounded-lg p-8 pb-16">
+                            <img src="/images/landing-page/icon (2).png" alt="Icon 2" class="mb-4">
+                            <h1 class="text-xl font-semibold text-[#000000] mb-4">Riset Pasar</h1>
+                            <p class="text-sm text-[#5A616E]">Kami menawarkan Riset Pasar untuk memahami dinamika pasar, preferensi konsumen, dan tren industri.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="wrapper-card-1 hover:mt-[-20px]" style="transition: all 0.5s ease;">
+                        <div class="div w-full h-[6px] bg-[#B186FA]"></div>
+                        <div class="card bg-white rounded-lg p-8 pb-16">
+                            <img src="/images/landing-page/icon (3).png" alt="Icon 3" class="mb-4">
+                            <h1 class="text-xl font-semibold text-[#000000] mb-4">Promosi</h1>
+                            <p class="text-sm text-[#5A616E]">Kami menyediakan fitur promosi untuk meningkatkan visibilitas merek Anda dan menarik lebih banyak pelanggan.</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="wrapper-card-1 hover:mt-[-20px]" style="transition: all 0.5s ease;">
+                        <div class="div w-full h-[6px] bg-[#FB867F]"></div>
+                        <div class="card bg-white rounded-lg p-8 pb-16">
+                            <img src="/images/landing-page/icon (4).png" alt="Icon 4" class="mb-4">
+                            <h1 class="text-xl font-semibold text-[#000000] mb-4">Pemasaran</h1>
+                            <p class="text-sm text-[#5A616E]">Kami menawarkan fitur pemasaran untuk membantu Anda menjangkau audiens yang lebih luas dan meningkatkan penjualan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section 2 -->
+    <div class="section section2 h-auto bg-[#0D172A] overflow-hidden">
+        <div class="content p-4 xl:px-32 mx-auto">
+            <!-- Text Content Section -->
+            <div class="text-content justify-center items-center text-center pb-11 xl:pb-0 w-full xl:mt-20 text-white">
+
+                <!-- Kontainer gambar -->
+                <div class="images flex justify-between"> <!-- Mengatur margin khusus untuk images -->
+                    <div class="wrapper ms-20 h-1 hidden xl:block lg:block md:hidden">
+                        <img src="/images/landing-page/profile-get-started (4).png" alt="">
+                    </div>
+                    <div class="wrapper h-1 hidden xl:block lg:block md:hidden"> <!-- Atur margin di sini tanpa mempengaruhi teks -->
+                        <img src="/images/landing-page/profile-get-started (3).png" alt="">
+                    </div>
+                </div>
+                <!-- Kontainer teks -->
+                <div class="text text-center items-center"> <!-- Posisi teks tidak akan terpengaruh oleh images -->
+                    <h1 class="text-2xl xl:text-6xl max-w-4xl font-semibold mb-10 mx-auto xl:leading-relaxed mt-10">
+                        Kami Siap Membantu Anda Memulai Bisnis
+                    </h1>
+                    <div class="button z-10">
+                        <a href="#" class="px-8 rounded-md xl:py-4 lg:py-4 py-3 bg-[#007DFC] text-sm hover:opacity-60" style="transition: all 0.5s ease;">Mulai Sekarang</a>
+                    </div>
+                </div>
+                <!-- Kontainer gambar -->
+                <div class="images flex justify-between z-0"> <!-- Mengatur margin khusus untuk images -->
+                    <div class="left ms-6 lg:ms-0 md:ms-10 xl:ms-0 mt-[-20px] xl:mt-0 lg:mt-0 md:mt-[-20px] xl:me-20 h-1">
+                        <img src="/images/landing-page/profile-get-started (1).png" alt="" class="w-[54px] h-auto xl:w-auto lg:w-auto">
+                    </div>
+                    <div class="center mt-[-20px] hidden xl:block lg:block md:hidden">
+                        <img src="/images/landing-page/line-get.png" alt="">
+                    </div>
+                    <div class="right-img mt-[-100px]">
+                        <div class="wrapper me-[-90px] ms-6 h-1 hidden xl:block lg:block md:hidden"> <!-- Atur margin di sini tanpa mempengaruhi teks -->
+                            <img src="/images/landing-page/rectangle.png" alt="">
+                        </div>
+                        <div class="wrapper h-1 mt-12 xl:mt-10 lg:mt-10 md:mt-10 me-5 xl:me-0 lg:me-0 md:me-10"> <!-- Atur margin di sini tanpa mempengaruhi teks -->
+                            <img src="/images/landing-page/profile-get-started (2).png" alt="" class="w-[54px] h-auto xl:w-auto lg:w-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!------------ section 5 ------------>
+    <div class="h-auto pt-32 xl:pb-24 p-4 xl:px-32 mx-auto">
+        <div class="title xl:flex xl:justify-between items-center w-full">
+            <h1 class="text-black text-3xl xl:text-4xl font-semibold leading-normal max-w-xl">Pertanyaan yang Sering Diajukan</h1>
+            <p class="mt-3 xl:mt-0 text-base xl:text-lg max-w-md">Temukan jawaban atas pertanyaan umum tentang FranchiseLink. Hubungi kami jika Anda memiliki pertanyaan lain.</p>
+        </div>
+        <div id="faq-container" class="w-full mt-8">
+            <!-- FAQ items will be injected here -->
+        </div>
+    </div>
+
+    <!------------ section 5 ------------>
+    <div id="testimoni" class="h-auto pt-32 xl:pb-48 p-4 xl:px-32 mx-auto">
+        <div class="title xl:flex xl:justify-between items-center w-full">
+            <h1 class="text-black text-3xl xl:text-4xl font-semibold leading-normal max-w-md">
+                Apa Kata Mereka Tentang <span class="text-[#007DFC]">FranchiseLink</span>
+            </h1>
+            <div class="button flex gap-3 mt-5 xl:mt-0">
+                <div class="prev">
+                    <i class="ri-arrow-left-s-line p-2 bg-[white] text-black font-bold text-xl rounded-md"></i>
+                </div>
+                <div class="next">
+                    <i class="ri-arrow-right-s-line p-2 bg-[#007DFC] text-white font-bold text-xl rounded-md"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="slider-card-container overflow-hidden mt-16">
+            <div class="slider-card flex transition-transform duration-300 gap-5">
+                <!-- Add more items as needed -->
+                <div class="item bg-white h-auto p-6 max-w-sm">
+                    <div class="profile flex">
+                        <div class="images me-3">
+                            <img src="/images/landing-page/profile-card (1).png" alt="">
+                        </div>
+                        <div class="text">
+                            <h1>Ashlynn Lipshutz</h1>
+                            <p class="text-sm text-[#5A616E]">Mitra Alfamart</p>
+                        </div>
+                    </div>
+                    <div class="desc mt-5">
+                        <p class="text-sm text-[#5A616E]">Prosesnya mudah dan dukungan mereka sangat membantu. Bisnis saya sekarang berkembang pesat!</p>
+                        <p class="text-sm text-[#5A616E] mt-5">Sangat Terbantu</p>
+                    </div>
+                </div>
+                <div class="item bg-white h-auto p-6 max-w-sm">
+                    <div class="profile flex">
+                        <div class="images me-3">
+                            <img src="/images/landing-page/profile-card (2).png" alt="">
+                        </div>
+                        <div class="text">
+                            <h1>Wiliiam Govern</h1>
+                            <p class="text-sm text-[#5A616E]">Mitra Indomaret</p>
+                        </div>
+                    </div>
+                    <div class="desc mt-5">
+                        <p class="text-sm text-[#5A616E]">Saya sanget senang dengan pelayanan dan pelatihan yang di lakukan oleh mentor di FranchiseLink</p>
+                        <p class="text-sm text-[#5A616E] mt-5">Sangat Terbantu</p>
+                    </div>
+                </div>
+                <div class="item bg-white h-auto p-6 max-w-sm">
+                    <div class="profile flex">
+                        <div class="images me-3">
+                            <img src="/images/landing-page/profile-card (3).png" alt="">
+                        </div>
+                        <div class="text">
+                            <h1>Stephanie Flo</h1>
+                            <p class="text-sm text-[#5A616E]">Mitra Mixue</p>
+                        </div>
+                    </div>
+                    <div class="desc mt-5">
+                        <p class="text-sm text-[#5A616E]">Penuh dukungan dan penegtahuan. Ilmu saya sangat bertambah tentang bisnis setelah menjadi member</p>
+                        <p class="text-sm text-[#5A616E] mt-5">Sangat Terbantu</p>
+                    </div>
+                </div>
+                <div class="item bg-white h-auto p-6 max-w-sm">
+                    <div class="profile flex">
+                        <div class="images me-3">
+                            <img src="/images/landing-page/profile-card (1).png" alt="">
+                        </div>
+                        <div class="text">
+                            <h1>Ashlynn Lipshutz</h1>
+                            <p class="text-sm text-[#5A616E]">Mitra Alfamart</p>
+                        </div>
+                    </div>
+                    <div class="desc mt-5">
+                        <p class="text-sm text-[#5A616E]">Prosesnya mudah dan dukungan mereka sangat membantu. Bisnis saya sekarang berkembang pesat!</p>
+                        <p class="text-sm text-[#5A616E] mt-5">Sangat Terbantu</p>
+                    </div>
+                </div>
+                <div class="item bg-white h-auto p-6 max-w-sm">
+                    <div class="profile flex">
+                        <div class="images me-3">
+                            <img src="/images/landing-page/profile-card (2).png" alt="">
+                        </div>
+                        <div class="text">
+                            <h1>Wiliiam Govern</h1>
+                            <p class="text-sm text-[#5A616E]">Mitra Indomaret</p>
+                        </div>
+                    </div>
+                    <div class="desc mt-5">
+                        <p class="text-sm text-[#5A616E]">Saya sanget senang dengan pelayanan dan pelatihan yang di lakukan oleh mentor di FranchiseLink</p>
+                        <p class="text-sm text-[#5A616E] mt-5">Sangat Terbantu</p>
+                    </div>
+                </div>
+                <div class="item bg-white h-auto p-6 max-w-sm">
+                    <div class="profile flex">
+                        <div class="images me-3">
+                            <img src="/images/landing-page/profile-card (3).png" alt="">
+                        </div>
+                        <div class="text">
+                            <h1>Stephanie Flo</h1>
+                            <p class="text-sm text-[#5A616E]">Mitra Mixue</p>
+                        </div>
+                    </div>
+                    <div class="desc mt-5">
+                        <p class="text-sm text-[#5A616E]">Penuh dukungan dan penegtahuan. Ilmu saya sangat bertambah tentang bisnis setelah menjadi member</p>
+                        <p class="text-sm text-[#5A616E] mt-5">Sangat Terbantu</p>
+                    </div>
+                </div>
+                <!-- Duplicate the above item for more cards -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="w-[900px] h-[600px] bg-[#E2F1FF] mt-[-250px]"></div>
+    
+    <!------------ section 5 ------------>
+    <div class="relative">
+        <div class="section mb-52 xl:mb-0 lg:mb-0 md:mb-0 xl:absolute h-auto xl:px-32 mt-[-220px] mx-auto w-full z-10">
+            <div class="bg-[#007DFC] text-center w-full h-auto p-14 xl:pt-16 xl:pb-0 justify-between flex">
+                <div class="imags mt-[-190px] ms-[-200px] hidden xl:block lg:hidden md:hidden">
+                    <img src="/images/landing-page/women.png" alt="">
+                </div>
+                <div class="text text-center justify-center items-center xl:text-left xl:ms-[-150px] mt-5">
+                    <h1 class="text-white text-3xl font-semibold xl:max-w-xl leading-relaxed">Ingin lebih paham mengenai franchise dan bisnis?</h1>
+                    <button class="mt-3 rounded-md px-6 py-4 bg-black text-white text-sm hover:opacity-80" style="transition: all 0.5s ease;">Pelajari Lebih Lanjut</button>
+                </div>
+                <div class="image hidden xl:block lg:hidden md:hidden me-[-56px] mt-10">
+                    <img src="/images/landing-page/rectangle-3.png" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <footer class="bg-[#0D172A] xl:mt-[-100px]">
+            <div class="mx-auto pt-1 pb-[30px] px-5 md:px-10 lg:px-32 xl:px-32">
+                <!-- grid start -->
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-10 xl:mt-40 lg:mt-40 md:mt-40 justify-between">
+                    <!-- logo -->
+                    <div class="col-span-full xl:col-span-2 lg:col-span-2 flex">
+                        <a href="./">
+                            <div class="items-center">
+                                <div class="flex">
+                                    <img src="/images/dashboard/logo-dashboard.png" alt="" class="me-3" />
+                                    <h1 class="text-white text-3xl font-semibold">FranchiseLink</h1>
+                                </div>
+                                <p class="gap-x-2 mt-5 max-w-sm text-[14px] text-gray-400">Marilah kita wujudkan impian Anda bersama kami dan raih kesuksesan yang Anda inginkan.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Perusahaan -->
+                    <div class="col-span-1">
+                        <h4 class="font-semibold text-gray-100 text-lg">Perusahaan</h4>
+                        <ul class="mt-3 grid space-y-3">
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./about.php"
+                                >
+                                    Beranda
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="https://blog.botika.online"
+                                    target="_blank"
+                                >
+                                    Tentang
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                    Layanan
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                    Testimoni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Dukungan Kami -->
+                    <div class="col-span-1">
+                        <h4 class="font-semibold text-gray-100 text-lg">Dukungan Kami</h4>
+                        <ul class="mt-3 grid space-y-3">
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                Investor
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./product.php"
+                                >
+                                Pengusaha
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                Perintis
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                Wirausaha
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                Franchisor
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./"
+                                >
+                                Umum
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Kontak -->
+                    <div class="col-span-1">
+                        <h4 class="font-semibold text-gray-100 text-lg">Kontak</h4>
+                        <ul class="mt-3 grid space-y-3">
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="#"
+                                >
+                                    +(62) 853-2672-2072
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./coming-soon.php"
+                                >
+                                franchiselink@cmpny.com
+                                </a>
+                            </li>
+                            <li class="m-0">
+                                <a
+                                    class="inline-flex gap-x-2 text-[14px] text-gray-400 hover:text-gray-200"
+                                    href="./coming-soon.php"
+                                >
+                                Bintaro Jakarta Selatan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="w-full mt-10 opacity-40">
+                <!-- grid end -->
+                <div class="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
+                    
+                    <!-- Social Brands -->
+                    <div class="flex justify-between items-center">
+                        <p class="text-sm text-white">© 2024 FranchiseLink. Semua hak cipta dilindungi. </p>
+                    </div>
+                    <!-- End Social Brands -->
+                    <div class="inline-flex gap-5">
+                        <p class="text-sm">
+                            <a
+                                href="./"
+                                target="_blank"
+                                class="text-white"
+                            >
+                            Instagram 
+                            </a>
+                        </p>
+                        <p class="text-sm">
+                            <a
+                                href="./"
+                                target="_blank"
+                                class="text-white"
+                            >
+                            Linkedin
+                            </a>
+                        </p>
+                        <p class="text-sm">
+                            <a
+                                href="./"
+                                target="_blank"
+                                class="text-white"
+                            >
+                            Facebook
+                            </a>
+                        </p>
+                        <p class="text-sm">
+                            <a
+                                href="./"
+                                target="_blank"
+                                class="text-white"
+                            >
+                            X
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        const popupOverlay = document.getElementById('popup-overlay');
+        const openPopupButton = document.getElementById('open-popup');
+        const closePopupButton = document.getElementById('close-popup');
+        const popupTujuan = document.getElementById('popup-tujuan');
+        const loginClose = document.getElementById('login-close');
+        const openPopupRev = document.getElementById('open-popup-res');
+        
+        // Open popup
+        openPopupButton.addEventListener('click', () => {
+            popupOverlay.classList.remove('hidden');
+        });
+
+        openPopupRev.addEventListener('click', () => {
+            popupOverlay.classList.remove('hidden');
+        });
+        
+        // Close popup
+        closePopupButton.addEventListener('click', () => {
+            popupOverlay.classList.add('hidden');
+        });
+        
+        // Close when clicking outside popup
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                popupOverlay.classList.add('hidden');
+            }
+        });
+        
+        // Close popup
+        loginClose.addEventListener('click', () => {
+            popupOverlay.classList.add('hidden');
+            popupTujuan.classList.remove('hidden');
+        });
+    </script>
+
+    <!-- JavaScript -->
+    <script>
+        const popupDaftar = document.getElementById('popup-daftar');
+        const openDaftar = document.getElementById('open-daftar');
+        const closeDaftar = document.getElementById('close-daftar');
+        const btnDaftar = document.getElementById('button-daftar');
+        const openPopupRevDaf = document.getElementById('open-daftar-res');
+        
+        // Open popup
+        openDaftar.addEventListener('click', () => {
+            popupDaftar.classList.remove('hidden');
+        });
+
+        // Open popup
+        openPopupRevDaf.addEventListener('click', () => {
+            popupDaftar.classList.remove('hidden');
+        });
+        
+        // Close popup
+        closeDaftar.addEventListener('click', () => {
+            popupDaftar.classList.add('hidden');
+        });
+        
+        // Close when clicking outside popup
+        popupDaftar.addEventListener('click', (e) => {
+            if (e.target === popupDaftar) {
+                popupDaftar.classList.add('hidden');
+            }
+        });
+
+        // Close popup
+        btnDaftar.addEventListener('click', () => {
+            popupDaftar.classList.add('hidden');
+            popupTujuan.classList.remove('hidden');
+        });
+    </script>
+
+    <script>
+        const faqs = [
+            {
+                number: "01",
+                question: "Apa itu FranchiseLink?",
+                answer: "FranchiseLink adalah platform yang menghubungkan calon franchisee dengan berbagai peluang franchise."
+            },
+            {
+                number: "02",
+                question: "Bagaimana cara memulai dengan FranchiseLink?",
+                answer: "Daftar di website kami, buat profil, dan jelajahi peluang franchise yang ada."
+            },
+            {
+                number: "03",
+                question: "Apakah FranchiseLink mengenakan biaya?",
+                answer: "Mendaftar dan menjelajahi peluang gratis. Layanan premium mungkin dikenakan biaya."
+            },
+            {
+                number: "04",
+                question: "Apakah FranchiseLink membantu pembelian franchise?",
+                answer: "Ya, kami menyediakan sumber daya dan menghubungkan Anda dengan konsultan franchise."
+            },
+            {
+                number: "05",
+                question: "Bagaimana cara menghubungi FranchiseLink?",
+                answer: "Hubungi kami melalui email di [franchiselink@cmpny.com] atau formulir kontak di website."
+            }
+        ];
+    
+        function createAccordion(containerSelector, faqData) {
+            const container = document.querySelector(containerSelector);
+            faqData.forEach((faq) => {
+                const faqItem = document.createElement('div');
+                faqItem.classList.add('border-b', 'border-gray-300', 'py-4', 'w-full');
+    
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('flex', 'justify-between', 'items-center', 'cursor-pointer', 'text-lg', 'font-semibold', 'text-gray-800');
+                questionDiv.innerHTML = `
+                    <div>
+                        <span style="margin-right: 6px; font-size: 14px; color: #5A616E;">${faq.number}</span>
+                        <span style="font-size: 22px;">${faq.question}</span>
+                    </div>
+                    <i class="ri-arrow-down-s-line arrow transition-transform duration-300"></i>
+                `;
+    
+                const answerDiv = document.createElement('div');
+                answerDiv.classList.add('faq-answer', 'max-h-0', 'max-w-xl', 'mt-3', 'overflow-hidden', 'text-gray-600', 'text-base', 'transition-all', 'duration-300');
+                answerDiv.innerText = faq.answer;
+    
+                questionDiv.addEventListener('click', function () {
+                    if (answerDiv.classList.contains('max-h-0')) {
+                        answerDiv.classList.remove('max-h-0');
+                        answerDiv.classList.add('max-h-48'); // Penyesuaian tinggi maksimal konten
+                        this.querySelector('.arrow').classList.add('rotate-180'); // Putar panah
+                    } else {
+                        answerDiv.classList.add('max-h-0');
+                        answerDiv.classList.remove('max-h-48');
+                        this.querySelector('.arrow').classList.remove('rotate-180'); // Kembalikan panah ke posisi awal
+                    }
+                });
+    
+                faqItem.appendChild(questionDiv);
+                faqItem.appendChild(answerDiv);
+                container.appendChild(faqItem);
+            });
+        }
+    
+        createAccordion('#faq-container', faqs);
+    </script>
+    
+    <script>
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const slider = document.querySelector('.slider-card');
+        const items = document.querySelectorAll('.item');
+
+        let currentIndex = 0;
+        const totalItems = items.length;
+
+        // Set number of visible items based on screen size
+        function getVisibleItems() {
+            if (window.innerWidth >= 1024) {
+                return 3; // For desktop, 3 items visible
+            } else {
+                return 1; // For mobile, 1 item visible
+            }
+        }
+
+        // Move the slider to the left or right
+        function updateSlider() {
+            const visibleItems = getVisibleItems();
+            const itemWidth = slider.clientWidth / visibleItems;
+            slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
+        // Handle next button
+        nextBtn.addEventListener('click', function () {
+            const visibleItems = getVisibleItems();
+            if (currentIndex < totalItems - visibleItems) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        // Handle prev button
+        prevBtn.addEventListener('click', function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+
+        // Update slider on window resize
+        window.addEventListener('resize', updateSlider);
+
+        // Initial setup
+        updateSlider();
+
+    </script>
+
+    <script>
+        const navLinks = document.querySelector('.nav-links');
+        const dropdown = document.querySelector('.relative.group');
+        const dropdownMenu = dropdown.querySelector('ul');
+
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu';
+            navLinks.classList.toggle('top-[9%]');
+        }
+
+        dropdown.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

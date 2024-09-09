@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <title>Detail</title>
+    <link rel="icon" href="/images/dashboard/logo-dashboard.png" type="image/x-icon">
+    <style>
+        .scroll-horizontal {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .scroll-horizontal .flex {
+            display: flex;
+        }
+
+        .scroll-horizontal .items {
+            display: inline-block;
+            width: 16rem; /* Adjust width as needed */
+        }
+
+        @media (max-width: 1024px) { /* Tablet and small desktops */
+            .scroll-horizontal .items {
+                width: 1rem; /* Adjust width as needed */
+            }
+        }
+
+        @media (max-width: 640px) { /* Mobile screens */
+            .scroll-horizontal {
+                overflow-x: auto;
+            }
+
+            .scroll-horizontal .items {
+                width: 100%; /* Adjust width as needed */
+            }
+        }
+
+        .scroll-horizontal {
+            overflow-x: auto; /* Mengaktifkan scroll horizontal */
+            overflow-y: hidden; /* Menyembunyikan scroll vertikal */
+            white-space: nowrap; /* Membuat konten dalam satu baris */
+        }
+
+        .scroll-horizontal::-webkit-scrollbar {
+            display: none; /* Menyembunyikan scrollbar di Webkit (Chrome, Safari) */
+        }
+
+        .scroll-horizontal .flex {
+            display: flex;
+            flex-wrap: nowrap; /* Pastikan elemen flex tidak membungkus ke baris baru */
+        }
+
+        .no-scrollbar {
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none; /* WebKit (Chrome, Safari) */
+        }
+
+        /* Tailwind Configuration (if needed for custom scrollbar) */
+        .scrollbar-hidden::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hidden {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+    </style>
+</head>
+<body class="text-gray-800 font-inter">
+    
+    <!-- start: Sidebar -->
+    <div class="fixed left-0 top-0 w-64 h-full bg-[#0D172A] p-4 z-50 sidebar-menu transition-transform">
+        <a href="#" class="flex items-center pb-4 border-b border-b-gray-800">
+            <img src="/images/dashboard/logo-dashboard.png" alt="">
+            <span class="text-lg font-bold text-white ml-3">FranchiseLink</span>
+        </a>
+        <ul class="mt-4">
+            <li class="mb-1 group active">
+                <a href="dashboard.html" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-function-line mr-3 text-lg"></i>
+                    <span class="text-sm">Beranda</span>
+                </a>
+            </li>
+            <li class="mb-1 group ">
+                <a href="franchise.html" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <i class="ri-store-2-line mr-3 text-lg"></i>
+                    <span class="text-sm">Franchise</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="mentor.html" class="flex items-center justify-between py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-graduation-cap-line mr-3 text-lg"></i>
+                        <span class="text-sm">Mentor</span>
+                    </div>
+                    <i class="ri-vip-crown-2-fill text-[#ECBE1C]"></i>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="analisa.html" class="flex items-center justify-between py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-pie-chart-2-fill mr-3 text-lg"></i>
+                        <span class="text-sm">Analisa</span>
+                    </div>
+                    <i class="ri-vip-crown-2-fill text-[#ECBE1C]"></i>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="pesan.html" class="flex justify-between items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-chat-1-line mr-3 text-lg"></i>
+                        <span class="text-sm">Pesan</span>
+                    </div>
+                    <span class="inline-block mt-2 text-white text-xs rounded-lg p-1 px-2 bg-[#007DFC]">4</span>
+                </a>
+            </li>
+            <li class="mb-1 group">
+                <a href="index.html" class="flex justify-between items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                    <div class="group">
+                        <i class="ri-logout-box-line mr-3 text-lg"></i>
+                        <span class="text-sm">Keluar</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
+    <!-- end: Sidebar -->
+
+    <!-- start: Main -->
+    <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-50 min-h-screen transition-all main">
+        <div class="py-2 px-6 bg-white flex items-center h-[70px] shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+            <button type="button" class="text-lg text-gray-600 sidebar-toggle">
+                <i class="ri-menu-line"></i>
+            </button>
+                <ul class="flex items-center text-sm ml-4">
+                    <li class="mr-2">
+                        <a href="#" class="text-gray-400 hover:text-gray-600 font-medium">Dashboard</a>
+                    </li>
+                    <a href="#" class="text-gray-600 hover:text-gray-400 font-medium">/ Detail Franchise</a>
+                </ul>
+            <ul class="ml-auto flex items-center">
+                <li class="mr-1 dropdown">
+                    <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                        <i class="ri-search-line"></i>
+                    </button>
+                    <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                        <form action="" class="p-4 border-b border-b-gray-100">
+                            <div class="relative w-full">
+                                <input type="text" class="py-2 pr-4 pl-10 bg-gray-50 w-full outline-none border border-gray-100 rounded-md text-sm focus:border-blue-500" placeholder="Search...">
+                                <i class="ri-search-line absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </form>
+                        <div class="mt-3 mb-2">
+                            <div class="text-[13px] font-medium text-gray-400 ml-4 mb-2">Recently</div>
+                            <ul class="max-h-64 overflow-y-auto">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">Alfamart Waralaba</div>
+                                            <div class="text-[11px] text-gray-400">$345</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <button type="button" class="dropdown-toggle border border-[#EEEEEE] text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                        <i class="ri-notification-3-line p-3"></i>
+                    </button>
+                    <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                        <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
+                            <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
+                            <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                        </div>
+                        <div class="my-2">
+                            <ul class="max-h-64 overflow-y-auto" data-tab-for="notification" data-page="notifications">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/alfamart.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">New order</div>
+                                            <div class="text-[11px] text-gray-400">from a user</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="max-h-64 overflow-y-auto hidden" data-tab-for="notification" data-page="messages">
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (1).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (2).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (3).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (4).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="py-2 px-4 flex items-center hover:bg-gray-50 group">
+                                        <img src="/images/dashboard/profile-chat (5).png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                                        <div class="ml-2">
+                                            <div class="text-[13px] text-gray-600 font-medium truncate group-hover:text-blue-500">John Doe</div>
+                                            <div class="text-[11px] text-gray-400">Hello there!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown ml-3 hidden lg:block xl:block">
+                    <div class="group flex gap-2">
+                        <button type="button" class="dropdown-toggle flex items-center">
+                            <img src="/images/dashboard/main-profile.png" alt="" class="w-8 h-8 rounded block object-cover align-middle">
+                        </button>
+                        <div class="text">
+                            <h1 class="text-sm text-[#000000]">Johan Yansen</h1>
+                            <p class="text-xs opacity-70">Anggota</p>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="group">
+            <div class="gap-6 mb-6">
+                <div class="left">                 
+                    <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+                        <div class="top-content">
+                            <div class="lg:xl xl:flex items-center justify-between mb-5">
+                                <div class="group flex">
+                                    <a href="franchise.html">
+                                        <i class="ri-arrow-left-s-line text-2xl me-3"></i>
+                                    </a>
+                                    <img src="/images/dashboard/alfamart.png" alt="" class="me-3">
+                                    <div class="relative w-full">
+                                        <h1>Alfamart Waralaba</h1>
+                                        <p class="text-sm text-[#A8A8A8]">Dipromosikan</p>
+                                    </div>
+                                </div>
+                                <div class="group mt-5 flex">
+                                    <div class="dot-menu flex gap-2 items-center me-5">
+                                        <i class="ri-share-line text-xl"></i>
+                                        <p class="text-sm text-[#000000]">Bagikan</p>
+                                    </div>
+                                    <div class="dot-menu flex gap-2 items-center">
+                                        <i class="ri-bookmark-fill text-xl text-[#007DFC]"></i>
+                                        <p class="text-sm text-[#007DFC]">Simpan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:xl xl:flex gap-5">
+                                <div class="w-full lg:w-[65%] xl:w-[65%]">
+                                    <div class="images">
+                                        <img src="/images/dashboard/ruko-alfamart.png" alt="" class="w-full">
+                                    </div>
+                                    <div class="mt-5">
+                                        <h1 class="text-xl mb-3 font-medium text-[#000000]">Tentang Alfamart Waralaba</h1>
+                                        <p class="text-base text-[#A8A8A8]">Franchise Alfamart adalah usaha gerai minimarket yang dimiliki dan dioperasikan berdasarkan Perjanjian Waralaba dari PT Sumber Alfaria Trijaya, Tbk, sebagai pemegang merek Alfamart dengan moto “Belanja Puas Harga Pas”. Model bisnis Alfamart adalah menjual berbagai kebutuhan sehari-hari dengan harga terjangkau dan memiliki konsep sebagai Community Store.</p>
+                                    </div>
+                                </div>
+                                <div class="w-full mt-5 xl:mt-0 lg:mt-0 lg::w-[65%] xl:w-[35%]">
+                                    <div class="bg-white w-full p-6 border mb-5">
+                                        <h1>Tipe franchise</h1>
+                                        <div class="group-input">
+                                            <select class="w-full pt-3 pb-3 mt-5 text-sm border border-[#EEEEEE] ps-2 pe-1 text-[#007DFC] rounded-lg" name="industrialfield" required>
+                                                <option value="" disabled selected>4 tipe yang tersedia</option>
+                                                <option value="BPR">BPR</option>
+                                                <option value="E-Commerce">E-Commerce</option>
+                                                <option value="Education">Education</option>
+                                            </select>
+                                        </div>
+                                        <h1 class="text-[#007DFC] mt-5">Mulai dari</h1>
+                                        <h1 class="text-[#000000] mt-3 text-lg">Rp. 45.000.000</h1>
+                                        <div class="bg-[#F9F9F9] p-3 mt-5">
+                                            <div class="flex items-center gap-4">
+                                                <i class="ri-booklet-line text-lg text-[#A8A8A8]"></i>
+                                                <p class="text-sm text-[#A8A8A8]">Untuk biaya di atas belum termasuk tambahan biaya desain dan konstruksi</p>
+                                            </div>
+                                        </div>
+                                        <div class="button xl:flex justify-between mt-5">
+                                            <button class="px-5 py-3 bg-[#007DFC] text-[#FFFFFF] rounded-md text-sm w-full xl:w-[45%] flex items-center justify-center gap-2">
+                                                <i class="ri-information-line text-lg"></i>
+                                                Selengkapnya
+                                            </button>
+                                            <button class="px-5 py-3 bg-[white] text-[#007DFC] rounded-md text-sm w-full xl:w-[55%] flex items-center justify-center gap-2">
+                                                <i class="ri-phone-line text-lg"></i>
+                                                Hubungi Franchise
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="images w-full">
+                                        <img src="/images/dashboard/blue-banner.png" alt="" class="w-full">
+                                    </div>
+                                    
+                                    <div class="mt-5">
+                                        <h1 class="text-xl mb-3 font-medium text-[#000000]">Detail Franchise</h1>
+                                        <div class="xl:flex gap-5">
+                                            <div class="group flex items-center">
+                                                <i class="ri-store-2-line px-3 py-2 bg-[#F4F9FF] rounded-md text-lg me-2"></i>
+                                                <div class="text">
+                                                    <h1 class="text-base font-medium text-[#000000]">Detail Franchise</h1>
+                                                    <p class="text-[#007DFC] text-sm">Seluruh Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <div class="group flex items-center mt-5 xl:mt-0">
+                                                <i class="ri-wallet-3-line px-3 py-2 bg-[#F4F9FF] rounded-md text-lg me-2"></i>
+                                                <div class="text">
+                                                    <h1 class="text-base font-medium text-[#000000]">Biaya Marketing</h1>
+                                                    <p class="text-[#007DFC] text-sm">Tidak ada</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-5 mt-5">
+                                            <div class="group flex items-center">
+                                                <i class="ri-store-2-line px-3 py-2 bg-[#F4F9FF] rounded-md text-lg me-2"></i>
+                                                <div class="text">
+                                                    <h1 class="text-base font-medium text-[#000000]">ROI/BEP</h1>
+                                                    <p class="text-[#007DFC] text-sm">4 Bulan</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <h1 class="text-xl mb-3 font-medium text-[#000000]">Rekomendasi Franchise</h1>
+                                <div id="scroll-container" class="scroll-horizontal mt-2 overflow-x-auto whitespace-nowrap scrollbar-hidden">
+                                    <div class="flex gap-4">
+                                        <!-- Card Item -->
+                                        <div class="items inline-block w-64 flex-shrink-0">
+                                            <div class="images">
+                                                <img src="/images/dashboard/slider-product (1).png" alt="" class="w-full h-auto">
+                                            </div>
+                                            <div class="card1 p-2 border border-gray-100 shadow-md shadow-black/5 bg-white">
+                                                <h1 class="text-[#000000]">Indomaret</h1>
+                                                <h1 class="text-[#007DFC]">Supermarket</h1>
+                                                <h1 class="text-[#A8A8A8] mt-4">BEP</h1>
+                                                <h1 class="text-[#000000]">4 Bulan</h1>
+                                                <p class="text-[#A8A8A8] text-sm mt-4">Mulai dari</p>
+                                                <h1 class="text-[#000000] text-base">Rp. 494.000.000</h1>
+                                            </div>
+                                        </div>
+                                        <div class="items inline-block w-64 flex-shrink-0">
+                                            <div class="images">
+                                                <img src="/images/dashboard/slider-product (2).png" alt="" class="w-full h-auto">
+                                            </div>
+                                            <div class="card1 p-2 border border-gray-100 shadow-md shadow-black/5 bg-white">
+                                                <h1 class="text-[#000000]">Circle</h1>
+                                                <h1 class="text-[#007DFC]">Supermarket</h1>
+                                                <h1 class="text-[#A8A8A8] mt-4">BEP</h1>
+                                                <h1 class="text-[#000000]">4 Bulan</h1>
+                                                <p class="text-[#A8A8A8] text-sm mt-4">Mulai dari</p>
+                                                <h1 class="text-[#000000] text-base">Rp. 100.000.000</h1>
+                                            </div>
+                                        </div>
+                                        <div class="items inline-block w-64 flex-shrink-0">
+                                            <div class="images">
+                                                <img src="/images/dashboard/slider-product (3).png" alt="" class="w-full h-auto">
+                                            </div>
+                                            <div class="card1 p-2 border border-gray-100 shadow-md shadow-black/5 bg-white">
+                                                <h1 class="text-[#000000]">Kopitiam Laoban</h1>
+                                                <h1 class="text-[#007DFC]">Restoran</h1>
+                                                <h1 class="text-[#A8A8A8] mt-4">BEP</h1>
+                                                <h1 class="text-[#000000]">12 Bulan</h1>
+                                                <p class="text-[#A8A8A8] text-sm mt-4">Mulai dari</p>
+                                                <h1 class="text-[#000000] text-base">Rp. 305.000.000</h1>
+                                            </div>
+                                        </div>
+                                        <div class="items inline-block w-64 flex-shrink-0">
+                                            <div class="images">
+                                                <img src="/images/dashboard/slider-product (4).png" alt="" class="w-full h-auto">
+                                            </div>
+                                            <div class="card1 p-2 border border-gray-100 shadow-md shadow-black/5 bg-white">
+                                                <h1 class="text-[#000000]">Steak Indonesia</h1>
+                                                <h1 class="text-[#007DFC]">Restoran</h1>
+                                                <h1 class="text-[#A8A8A8] mt-4">BEP</h1>
+                                                <h1 class="text-[#000000]">4 Bulan</h1>
+                                                <p class="text-[#A8A8A8] text-sm mt-4">Mulai dari</p>
+                                                <h1 class="text-[#000000] text-base">Rp. 175.000.000</h1>
+                                            </div>
+                                        </div>
+                                        <div class="items inline-block w-64 flex-shrink-0">
+                                            <div class="images">
+                                                <img src="/images/dashboard/slider-product (5).png" alt="" class="w-full h-auto">
+                                            </div>
+                                            <div class="card1 p-2 border border-gray-100 shadow-md shadow-black/5 bg-white">
+                                                <h1 class="text-[#000000]">Nasi Goreng Kele...</h1>
+                                                <h1 class="text-[#007DFC]">Restoran</h1>
+                                                <h1 class="text-[#A8A8A8] mt-4">BEP</h1>
+                                                <h1 class="text-[#000000]">12 Bulan</h1>
+                                                <p class="text-[#A8A8A8] text-sm mt-4">Mulai dari</p>
+                                                <h1 class="text-[#000000] text-base">Rp. 159.000.000</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- end: Main -->
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/js/script.js"></script>
+    <script>
+        const scrollContainer = document.getElementById('scroll-container');
+    
+        scrollContainer.addEventListener('wheel', (e) => {
+            // Jika scroll vertikal (mouse wheel) dan tidak horizontal
+            if (e.deltaY !== 0 && e.deltaX === 0) {
+                e.preventDefault();
+                scrollContainer.scrollLeft += e.deltaY;
+            }
+        });
+    </script>
+</body>
+</html>
